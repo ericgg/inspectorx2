@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PartidaModel } from './../../core/models/partida.model';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from './../../auth/auth.service';
 import { ApiService } from './../../core/api.service';

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { MatTooltipModule} from '@angular/material';
 //RXJS
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 //Services
 import { AuthService } from './../../auth/auth.service';
 import { DbhelpService } from './../../service/dbhelp.service';
-import { ArtefatoModel } from '../../core/models/artefato.model';
+
 
 @Component({
   selector: 'app-fip-create',
@@ -16,12 +15,7 @@ import { ArtefatoModel } from '../../core/models/artefato.model';
 })
 
 export class FipCreateComponent implements OnInit {
-  changeText: boolean;
-  position: string= "before";
   difValue: number = 0;
-  onMouse: boolean = false;
-  aux: boolean =false;
-  on: number= -1;
   partidanome: string = null;
   ListuserList: any;
   ArtefatoList: any;
@@ -30,7 +24,7 @@ export class FipCreateComponent implements OnInit {
   InspecListFail: boolean;
   ArtifListFail: boolean;
 
-constructor(private router: Router, public auth: AuthService, private dbhelp: DbhelpService) {this.changeText=false; }
+constructor(private router: Router, public auth: AuthService, private dbhelp: DbhelpService) { }
 
   ngOnInit() {
     this.dbhelp._getListuser().then(res =>{
@@ -41,13 +35,7 @@ constructor(private router: Router, public auth: AuthService, private dbhelp: Db
       this.ArtefatoList = res;
     })
   }
-  onClick(){
-    this.ArtefatoList[1].content;
-  }
 
-  buttonclose(){
-    this.onMouse=false;
-  }
   clickAtivo(value: number) {
     //Isso vai modificar a dificuldade em algum momento
   	this.difValue = value;
@@ -92,13 +80,12 @@ constructor(private router: Router, public auth: AuthService, private dbhelp: Db
     }
   }
 
-
   public buttonclick() {
     if (this._createListuserArray()) {
       this.InspecListFail = false;
     } else {
        this.InspecListFail = true;
-    }
+    }  
 
     if (this._createArtefatoArray()) {
         this.ArtifListFail = false;

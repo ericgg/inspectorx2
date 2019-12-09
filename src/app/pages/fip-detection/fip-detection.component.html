@@ -31,13 +31,13 @@
     									<div class="col-sm"><textarea class="form-control" id="{{i}}" rows="1" [(ngModel)]="detDescriptArray[i]" ></textarea></div>
                 					</ng-container>
                 				</div>
-            				</ng-container>
+            				</ng-container><!--!-->
 					</div>
 				<div class="row form-group">
 					<label for="textarea">Inserir comentários</label>
     				<textarea class="form-control" id="textarea" rows="3"></textarea>
     			</div>
-				<button class="btn btn-primary" (click)="executarResp()">Criar resposta</button>
+				<button (click)="executarResp()">Criar resposta</button>
 			</div>
 
 		</div>
